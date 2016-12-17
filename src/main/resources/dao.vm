@@ -1,0 +1,16 @@
+##包定义
+package $!{targetPackage};
+
+import org.springframework.stereotype.Repository;
+import com.shishu.jdbc.dao.MyBatisEntityDao;
+##导入
+import $!{generatorContext.datamodule};
+
+/**
+ * @description:数据访问对象
+ * @author: autoCode
+ */
+@Repository
+public class $!{className}Dao extends MyBatisEntityDao<$!{className}> {
+
+}

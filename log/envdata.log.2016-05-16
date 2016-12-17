@@ -1,0 +1,8 @@
+2016-05-16 18:47:50,839 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/dao/datamodule/ConferenceRequest.java
+2016-05-16 18:47:50,888 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/dao/datamodule/ConferenceRequest.xml
+2016-05-16 18:47:50,892 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/dao/ConferenceRequestDao.java
+2016-05-16 18:47:50,896 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/service/ConferenceRequestService.java
+2016-05-16 23:03:35,120 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/dao/datamodule/ConferenceRequest.java
+2016-05-16 23:03:35,138 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/dao/datamodule/ConferenceRequest.xml
+2016-05-16 23:03:35,142 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/dao/ConferenceRequestDao.java
+2016-05-16 23:03:35,145 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/datahive/src/main/java/com/jsdatum/datahive/service/ConferenceRequestService.java

@@ -1,0 +1,5 @@
+2016-08-01 13:44:13,309 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/fintech/src/main/java/com/tuodao/fintech/dao/datamodule/VehicleCode.java
+2016-08-01 13:44:13,338 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/fintech/src/main/java/com/tuodao/fintech/dao/datamodule/VehicleCode.xml
+2016-08-01 13:44:13,342 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/fintech/src/main/java/com/tuodao/fintech/dao/VehicleCodeDao.java
+2016-08-01 13:44:13,356 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/fintech/src/main/java/com/tuodao/fintech/service/VehicleCodeService.java
+2016-08-01 13:44:13,380 INFO  [main] com.shishu.utility.file.FileUtil: 生成文件 : F:/jsdatum/fintech/src/main/java/com/tuodao/fintech/action/VehicleCodeAction.java

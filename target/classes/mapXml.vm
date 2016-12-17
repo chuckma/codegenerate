@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="$!{generatorContext.datamodule}">
+    <select id="selectList" parameterType="$!{generatorContext.datamodule}" resultType="$!{generatorContext.datamodule}">
+        SELECT #foreach ($column in $columns)$!{column.columnName}#if(${columns.size()} != $velocityCount),#end#end
+        FROM $!{tableName} 
+        <where>
+#foreach ($column in $columns)
+            <if test="$!{column.columnName} != null">and $!{column.columnName} = #{$!{column.columnName}}</if>
+#end
+        </where>
+    </select>
+    <select id="count" parameterType="$!{generatorContext.datamodule}" resultType="int" >
+        SELECT count(*) from $!{tableName}  
+		<where>
+#foreach ($column in $columns)
+	        <if test="$!{column.columnName} != null">and $!{column.columnName} = #{$!{column.columnName}}</if>
+#end   
+        </where>
+    </select>
+    <insert id="insert" parameterType="$!{generatorContext.datamodule}">
+        INSERT INTO $!{tableName} (#foreach ($column in $columns)$!{column.columnName}#if(${columns.size()} != $velocityCount), #end#end)
+		VALUES(#foreach ($column in $columns)#{$!{column.fieldName}}#if(${columns.size()} != $velocityCount), #end#end)
+    </insert>
+    <delete id="delete" parameterType="$!{generatorContext.datamodule}">
+        DELETE FROM $!{tableName}
+        WHERE $!{idColumnName} = #{$!{idColumnName}}
+    </delete>
+    <update id="update" parameterType="$!{generatorContext.datamodule}" flushCache="true">
+        UPDATE $!{tableName}
+        SET
+            $!{idColumnName} = #{$!{idColumnName}}##
+#foreach ($column in $columns)
+	        #if($!{column.columnKey} != "PRI")<if test="$!{column.columnName} != null">,$!{column.columnName} = #{$!{column.fieldName}}</if>#end				
+
+#end
+        WHERE $!{idColumnName} = #{$!{idColumnName}}
+    </update>
+</mapper>

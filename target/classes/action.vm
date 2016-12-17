@@ -1,0 +1,102 @@
+##包定义
+package $!{targetPackage};
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.shishu.utility.json.JsonUtils;
+import com.shishu.jdbc.dao.support.Page;
+import com.shishu.StrutsAction;
+import $!{generatorContext.datamodule};
+import $!{generatorContext.service}Service;
+
+/**
+ * 
+ * @description:$!{className} action
+ * @author: autoCode
+ * @history:
+ */
+ ## 类名
+ @SuppressWarnings("serial")
+public class $!{className}Action extends StrutsAction {
+	@Autowired
+	private $!{className}Service entityService;
+	
+	private int page = 1;
+	private int rows = 10;
+	
+	$!{className} o = new $!{className}();
+	public Object getModel() {
+		return o;
+	}
+
+	/**
+	 * 分页查询$!{className}列表.
+	 */
+	public void queryPaged() throws Exception {
+		Page p = entityService.query$!{className}(o,(page - 1) * rows,rows);
+		printJson(JsonUtils.bean2Json(p));
+	}
+	
+	/**
+	 * 普通查询$!{className}列表
+	 *
+	 */
+	public void query() throws Exception{
+		List<$!{className}> result = entityService.query$!{className}(o);
+		printJson(JsonUtils.beanlist2Json(result));
+	}
+
+	/**
+	 * 保存单条$!{className}记录.
+	 */
+	@Override
+	public String save() throws Exception {
+		List<$!{className}> result = entityService.query$!{className}(o);
+		
+		if(result != null && result.size() > 0){
+			entityService.update$!{className}(o);
+		}else{
+			entityService.insert$!{className}(o);
+		}		
+		printJson(messageSuccuseWrap());
+		return null;
+	}
+
+	/**
+	 * 删除$!{className}记录.
+	 */
+	public String delete() throws Exception {
+		entityService.delete$!{className}(o);
+		printJson(messageSuccuseWrap());
+		return null;
+	}
+	/**
+	 * service类名、成员名
+	 */
+	public void set$!{className}Service($!{className}Service entityService) {
+		this.entityService = entityService;
+	}
+	
+	@Override
+	public String execute() throws Exception {
+		
+		return "input";
+	}
+	
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getRows() {
+		return rows;
+	}
+
+	public void setRows(int rows) {
+		this.rows = rows;
+	}
+
+}

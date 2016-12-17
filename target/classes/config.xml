@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!--jdbcConnection 数据库连接信息
+		driverClass：数据库驱动程序
+		connectionURL：数据库连接串
+		userId:数据库用户名
+		password：用户密码
+		infSql:读取表信息的sql,mysql:"SELECT c.COLUMN_COMMENT ,c.COLUMN_NAME , c.COLUMN_TYPE , c.COLUMN_KEY ,c.DATA_TYPE , c.IS_NULLABLE ,c.COLUMN_DEFAULT  FROM information_schema.COLUMNS c WHERE c.TABLE_NAME = '${table_name}' AND c.TABLE_SCHEMA = '${TABLE_SCHEMA}'"
+	 -->
+	<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+		connectionURL="jdbc:mysql:localhost:3306/temp" 
+		userId="root"
+		password="root"
+		infSql = "SELECT   c.COLUMN_COMMENT ,c.COLUMN_NAME , c.COLUMN_TYPE , c.COLUMN_KEY ,c.DATA_TYPE , c.IS_NULLABLE ,c.COLUMN_DEFAULT   FROM information_schema.COLUMNS c WHERE c.TABLE_NAME = '${TABLE_NAME}' AND c.TABLE_SCHEMA = '${TABLE_SCHEMA}'"
+		>
+	</jdbcConnection>
+	<generators>
+		<!--generator，要生成的代码类型
+			targetProject:代码存放位置，
+		    targetPackage:代码包路径，
+		    template：使用渲染模板， 
+		    type:代码类型，xml:sql Map文件，datamodule：实体对象，dao：数据访问对象，service：服务对象，action，page:vm模板
+		     -->
+		<!-- datamodule 文件生成 -->	
+			
+		<generator targetPackage="com.jsdatum.git.dao.datamodule"
+			targetProject="F:/jsdatum/fintech/src/main/java" template="datamodule.vm" type="datamodule"/>
+		 
+		<!-- sql map 文件生成 -->	
+			
+			<generator targetPackage="com.tuodao.fintech.dao.datamodule"
+			targetProject="F:/jsdatum/fintech/src/main/java" template="mapXml.vm" type="xml"/>
+		
+		<!-- dao 文件生成 -->
+			
+			<generator targetPackage="com.tuodao.fintech.dao"
+			targetProject="F:/jsdatum/fintech/src/main/java" template="dao.vm" type="dao"/> 
+			
+		 <generator targetPackage="com.tuodao.fintech.service"
+			targetProject="F:/jsdatum/fintech/src/main/java" template="service.vm" type="service" /> 
+			 
+		<!-- action 文件生成 -->
+		<generator targetPackage="com.tuodao.fintech.action"
+			targetProject="F:/jsdatum/fintech/src/main/java" template="action.vm" type="action" />
+		
+		<!-- 页面  文件生成 -->
+		<!--<generator targetPackage="content"
+			targetProject="e:\newcode\" template="page.vm" type="page" />-->
+	</generators>
+	<tables>
+		<!--生成代码的表信息
+			schema：数据库schema
+			tableNmae：数据库表名
+			className:对应java实体名，默认安装tableName安装驼峰规则转换得到
+		 -->
+		<table schema="fintech" tableName="valuation_request" className="ValuationRequest"/>
+		
+	</tables>
+</config>

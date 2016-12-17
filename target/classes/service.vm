@@ -1,0 +1,85 @@
+##包定义
+package $!{targetPackage};
+
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+import com.shishu.BaseService;
+import com.shishu.jdbc.dao.support.Page;
+##导入dao、实体
+import $!{generatorContext.dao}Dao;
+import $!{generatorContext.datamodule};
+
+/**
+ * @description:
+ * @author: autoCode
+ * @history:
+ */
+@Service
+public class  $!{className}Service extends BaseService {
+	@Autowired
+	private $!{className}Dao entityDao;
+
+	
+
+	/**
+	 * @description:添加
+     * @author: autoCode
+     * @history:
+     */
+	public Integer insert$!{className}($!{className} o) {
+		Assert.notNull(o);
+		return (Integer) entityDao.insert(o);
+	}
+
+	/**
+	 * @description:更新
+     * @author: autoCode
+     * @history:
+     */
+	public void update$!{className}($!{className} o) {
+		Assert.notNull(o);
+		entityDao.update(o);
+	}
+	
+	/**
+	 * @description:删除
+     * @author: autoCode
+     * @history:
+     */
+	public void delete$!{className}($!{className} o) {
+		Assert.notNull(o);
+		entityDao.delete(o);
+	}
+	/**
+	 * @description:查询
+     * @author: autoCode
+     * @history:
+     */
+	public Page query$!{className}(Map<String, String> parameterObject) {
+		Assert.notNull(parameterObject);
+		return entityDao.queryPaged(parameterObject);
+	}
+	
+	/**
+	 * @description:查询
+     * @author: autoCode
+     * @history:
+     */
+	public Page query$!{className}($!{className} o,int start,int limit) {
+		Assert.notNull(o);
+		return entityDao.queryPaged(o,start, limit);
+	}
+	
+	/**
+	 * @description:查询
+     * @author: autoCode
+     * @history:
+     */
+	public List<$!{className}> query$!{className}($!{className} o) {
+		Assert.notNull(o);
+		return entityDao.select(o);
+	}
+}
